@@ -10,14 +10,14 @@ import { SalaryCalculationResponse } from '../../models/salary-calculation-respo
   standalone: true,
   imports: [
     ReactiveFormsModule,
-    CommonModule  // Importa CommonModule para acceder al pipe 'currency'
+    CommonModule  
   ],
   templateUrl: './calcular-pagos.component.html',
   styleUrls: ['./calcular-pagos.component.css']
 })
 export class CalcularPagosComponent {
   form: FormGroup;
-  result?: SalaryCalculationResponse;  // Variable para almacenar el resultado
+  result?: SalaryCalculationResponse;  
 
   constructor(
     private fb: FormBuilder,
