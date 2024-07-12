@@ -37,8 +37,6 @@
   
       <button type="submit" [disabled]="!form.valid">Calcular Salario</button>
     </form>
-  
-    <!-- Resultados del cálculo, solo se muestran si 'result' está definido -->
     <div *ngIf="result">
       <h3>Resultados del Cálculo:</h3>
       <p>Salario regular: {{ result?.regularSalary | currency:'USD' }}</p>
