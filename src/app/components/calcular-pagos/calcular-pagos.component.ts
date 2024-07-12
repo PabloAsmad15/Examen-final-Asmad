@@ -34,7 +34,7 @@ export class CalcularPagosComponent {
   onSubmit(): void {
     if (this.form.valid) {
       const request: SalaryCalculationRequest = this.form.value;
-      this.result = this.salaryCalculationService.calculateSalary(request); // Guardar el resultado
+      this.result = this.salaryCalculationService.calculateSalary(request); 
       console.log(this.result);
     }
   }
