@@ -3,46 +3,48 @@
       <div class="form-group">
         <label for="name">Nombre del empleado:</label>
         <input type="text" id="name" formControlName="name">
-        <div *ngIf="form.get('name').touched && form.get('name').errors">
-          <small *ngIf="form.get('name').hasError('required')">El nombre es obligatorio.</small>
+        <div *ngIf="form.get('name')?.touched && form.get('name')?.errors">
+          <small *ngIf="form.get('name')?.hasError('required')">El nombre es obligatorio.</small>
         </div>
       </div>
   
       <div class="form-group">
         <label for="hourlyWage">Salario por hora:</label>
         <input type="number" id="hourlyWage" formControlName="hourlyWage" min="0.01">
-        <div *ngIf="form.get('hourlyWage').touched && form.get('hourlyWage').errors">
-          <small *ngIf="form.get('hourlyWage').hasError('required')">El salario por hora es obligatorio.</small>
-          <small *ngIf="form.get('hourlyWage').hasError('min')">El salario por hora debe ser mayor o igual a 0.01.</small>
+        <div *ngIf="form.get('hourlyWage')?.touched && form.get('hourlyWage')?.errors">
+          <small *ngIf="form.get('hourlyWage')?.hasError('required')">El salario por hora es obligatorio.</small>
+          <small *ngIf="form.get('hourlyWage')?.hasError('min')">El salario por hora debe ser mayor o igual a 0.01.</small>
         </div>
       </div>
   
       <div class="form-group">
         <label for="hoursWorked">Horas trabajadas:</label>
         <input type="number" id="hoursWorked" formControlName="hoursWorked" min="1">
-        <div *ngIf="form.get('hoursWorked').touched && form.get('hoursWorked').errors">
-          <small *ngIf="form.get('hoursWorked').hasError('required')">Las horas trabajadas son obligatorias.</small>
-          <small *ngIf="form.get('hoursWorked').hasError('min')">Las horas trabajadas deben ser mayores o iguales a 1.</small>
+        <div *ngIf="form.get('hoursWorked')?.touched && form.get('hoursWorked')?.errors">
+          <small *ngIf="form.get('hoursWorked')?.hasError('required')">Las horas trabajadas son obligatorias.</small>
+          <small *ngIf="form.get('hoursWorked')?.hasError('min')">Las horas trabajadas deben ser mayores o iguales a 1.</small>
         </div>
       </div>
   
       <div class="form-group">
         <label for="overtimeHours">Horas extras:</label>
         <input type="number" id="overtimeHours" formControlName="overtimeHours" min="0">
-        <div *ngIf="form.get('overtimeHours').touched && form.get('overtimeHours').errors">
-          <small *ngIf="form.get('overtimeHours').hasError('required')">Las horas extras son obligatorias.</small>
-          <small *ngIf="form.get('overtimeHours').hasError('min')">Las horas extras deben ser mayores o iguales a 0.</small>
+        <div *ngIf="form.get('overtimeHours')?.touched && form.get('overtimeHours')?.errors">
+          <small *ngIf="form.get('overtimeHours')?.hasError('required')">Las horas extras son obligatorias.</small>
+          <small *ngIf="form.get('overtimeHours')?.hasError('min')">Las horas extras deben ser mayores o iguales a 0.</small>
         </div>
       </div>
   
       <button type="submit" [disabled]="!form.valid">Calcular Salario</button>
     </form>
+  
+    <!-- Resultados del cálculo, solo se muestran si 'result' está definido -->
     <div *ngIf="result">
-        <h3>Resultados del Cálculo:</h3>
-        <p>Salario regular: {{ result?.regularSalary | currency:'USD' }}</p>
-        <p>Salario por horas extras: {{ result?.overtimeSalary | currency:'USD' }}</p>
-        <p>Deducciones: {{ result?.deductions | currency:'USD' }}</p>
-        <p>Salario neto: {{ result?.netSalary | currency:'USD' }}</p>
-      </div>      
+      <h3>Resultados del Cálculo:</h3>
+      <p>Salario regular: {{ result?.regularSalary | currency:'USD' }}</p>
+      <p>Salario por horas extras: {{ result?.overtimeSalary | currency:'USD' }}</p>
+      <p>Deducciones: {{ result?.deductions | currency:'USD' }}</p>
+      <p>Salario neto: {{ result?.netSalary | currency:'USD' }}</p>
+    </div>
   </div>
   

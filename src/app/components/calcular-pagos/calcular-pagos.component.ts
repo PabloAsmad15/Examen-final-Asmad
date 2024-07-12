@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, Validators, ReactiveFormsModule } from '@angular/forms';
+import { CommonModule } from '@angular/common';
 import { SalaryCalculationService } from '../../services/calcular-pagos.service';
 import { SalaryCalculationRequest } from '../../models/salary-calculation-request.model';
 import { SalaryCalculationResponse } from '../../models/salary-calculation-response.model';
@@ -8,7 +9,8 @@ import { SalaryCalculationResponse } from '../../models/salary-calculation-respo
   selector: 'app-calcular-pagos',
   standalone: true,
   imports: [
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    CommonModule  // Importa CommonModule para acceder al pipe 'currency'
   ],
   templateUrl: './calcular-pagos.component.html',
   styleUrls: ['./calcular-pagos.component.css']
